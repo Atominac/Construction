@@ -25,12 +25,17 @@ public class home extends AppCompatActivity
     TextView userName,userPhone;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         session = new UserSessionManager(getApplicationContext());
         HashMap<String,String> user=session.getUserDetails();
@@ -112,5 +117,9 @@ public class home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }

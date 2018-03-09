@@ -56,13 +56,16 @@ public class taskdesc extends Fragment {
         View view = inflater.inflate(R.layout.fragment_taskdesc, container, false);
         this.mView = view;
         linearLayout=(LinearLayout)mView.findViewById(R.id.desc_layout);
-        progressbar=(ProgressBar)mView.findViewById(R.id.desc_progressbar);
+       // progressbar=(ProgressBar)mView.findViewById(R.id.desc_progressbar);
         currentprogress=(EditText)mView.findViewById(R.id.actualprogress);
         taskdesc=(TextView)mView.findViewById(R.id.textdesc);
         expectedprogress=(TextView)mView.findViewById(R.id.expectedprogress);
         submit=(Button)mView.findViewById(R.id.Submit);
         String id="hey";
         UserDetailsApiCall(id);
+
+        ((home) getActivity())
+                .setActionBarTitle("Task Description");
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +76,7 @@ public class taskdesc extends Fragment {
 
 
                 if (!num1.equals("")){
-                    submitApiCall(num1);
+                   submitApiCall(num1);
                 }
                 else
                     Toast.makeText(mContext,"enter valid information",Toast.LENGTH_SHORT).show();
@@ -88,7 +91,7 @@ public class taskdesc extends Fragment {
     }
 
     private void submitApiCall(String num1){
-        showProgress();
+        //showProgress();
         RequestQueue queue = Volley.newRequestQueue(mContext);
         String api = "https://homebuddy2018.herokuapp.com/editItem/";
         Map<String, Object> data = new HashMap<>();
@@ -135,7 +138,7 @@ public class taskdesc extends Fragment {
 
 
     private void UserDetailsApiCall(String id){
-        showProgress();
+        //showProgress();
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         String api = "";
         Map<String, Object> data = new HashMap<>();
@@ -156,7 +159,7 @@ public class taskdesc extends Fragment {
                     e.printStackTrace();
                     Toast.makeText(getActivity(),"Error: " + e.getMessage(),Toast.LENGTH_LONG).show();
                 }
-                hideProgress();
+                //hideProgress();
             }
 
         }, new Response.ErrorListener() {

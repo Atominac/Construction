@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.R.attr.category;
+
 
 public class home2 extends Fragment {
 
@@ -55,6 +57,11 @@ public class home2 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home2, container, false);
         this.mView = view;
+
+        setHasOptionsMenu(true);
+
+        ((home) getActivity())
+                .setActionBarTitle("Task List");
 
         ProgressBar = (ProgressBar)mView.findViewById(R.id.task_progressBar);
         recyclerView = (RecyclerView) mView.findViewById(R.id.task_recycler);
